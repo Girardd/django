@@ -26,3 +26,7 @@ Bugfixes
   :class:`~django.http.HttpResponseRedirect` and
   :class:`~django.http.HttpResponsePermanentRedirect` for URLs longer than 2048
   characters. The limit is now 16384 characters (:ticket:`36743`).
+
+* Fixed a bug where template tag functions relying on the Python 3.14 behavior
+  of deferred evaluation of type annotations could not be registered
+  (:ticket:`36712`).
