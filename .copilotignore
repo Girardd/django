@@ -1,0 +1,15 @@
+# Bloqueia a leitura do Copilot nas pastas de teste do Django
+auth_tests/
+modeladmin/
+admin_scripts/
+model_forms/
+admin_views/
+migrations/
+template_tests/
+backends/
+utils_tests/
+
+# Padrões gerais para bloquear qualquer arquivo de teste solto
+tests/
+test_*.py
+*_tests.py
