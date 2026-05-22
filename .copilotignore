@@ -1,15 +1,71 @@
-# Bloqueia a leitura do Copilot nas pastas de teste do Django
+# Bloqueia diretórios e arquivos comuns de teste em projetos Django/Python
+
+# Todos os diretórios e arquivos principais de testes
+tests/
+test/
+test-*
+*_test.py
+test_*.py
+*_tests.py
+__tests__/
+*/tests/
+*/test/
+*/test-*/
+
+# Diretórios de testes específicos do Django e seus apps (inclusive seus variantes)
 auth_tests/
 modeladmin/
 admin_scripts/
 model_forms/
 admin_views/
-migrations/
+migrations/        # cuidado: se você quiser que migrações rodem, remova daqui!
 template_tests/
 backends/
 utils_tests/
+integration_tests/
+system_tests/
+functional_tests/
+unit_tests/
+admin_tests/
+regressiontests/
+*tests*/
 
-# Padrões gerais para bloquear qualquer arquivo de teste solto
-tests/
-test_*.py
-*_tests.py
+# Arquivos de teste soltos em qualquer nível
+*test*[0-9a-zA-Z_.-]*
+*.spec.py
+*.test.py
+
+# Arquivos/nomes relacionados a fixtures usados em testes
+fixtures/
+*fixture*
+*fixtures*
+*.fixture.*
+*.fixtures.*
+
+# Padrões de snapshots comuns em frameworks de teste
+__snapshots__/
+*.snap
+
+# Outras convenções possíveis
+coverage.*
+.nose*
+.pytest*
+.tox/
+.junit.*
+.vcr_cassettes/
+*.coveragerc
+*.tox
+
+# (Opcional) Bloqueie arquivos de configuração de ambiente de CI/CD que disparem testes
+.github/workflows/
+.circleci/
+.gitlab-ci.yml
+.travis.yml
+
+# (Opcional) Bloqueia relatórios de testes
+htmlcov/
+coverage.xml
+*.cover
+*.lcov
+*/test*
+*test*
